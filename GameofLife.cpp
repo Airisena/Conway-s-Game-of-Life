@@ -9,6 +9,9 @@
 
 
 #include <iostream>
+#include <cstdlib>
+#include <thread>
+#include <chrono>
 
 #define GRID (25)
 #define ROW (8)
@@ -180,9 +183,13 @@ void Game::initialise(){
 }
 
 void Game::show(){
+	std::this_thread::sleep_for(std::chrono::seconds(1));
+	std::system("clear");
 	for(int i=0;i<COLUMN;i++){
 		for(int j=0;j<ROW;j++){
-			cout << stage[i][j].state;
+//			cout << stage[i][j].state;
+			if(stage[i][j].state) cout << "@";
+			else cout << "#";
 		}
 		cout << endl;
 	}
@@ -198,7 +205,6 @@ void Game::run(){
 		cout << "--- " << i+1 << " ---" << endl;
 		calcScore();
 		updateState();
-		cout << endl;
 		show();
 	}
 
