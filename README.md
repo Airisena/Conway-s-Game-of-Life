@@ -1,4 +1,4 @@
 # Conway-s-Game-of-Life
 詳しくはライフゲームでぐぐってね
 
-g++ GameofLife.cpp
+g++ -std=c++11 -pthread GameofLife.cpp
